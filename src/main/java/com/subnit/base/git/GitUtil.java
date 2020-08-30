@@ -85,8 +85,8 @@ public class GitUtil {
 
 
     public static void main(String[] args) throws GitAPIException, IOException {
-        String userName = "subnit@163.com";
-        String password = "tiantian0971";
+        String userName = "";
+        String password = "";
         String repo = "https://github.com/subnit/impactsAnalysis.git";
         String branch = "master";
         String directory = "/Users/huihui/gitTemp";
