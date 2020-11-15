@@ -1,13 +1,16 @@
 package com.subnit.base.data;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 /**
  * description:
@@ -109,6 +112,39 @@ public class FileUtil {
         return value;
     }
 
+    public static void unzipJar(String destinationDir, String jarPath) throws IOException {
+        File file = new File(jarPath);
+        JarFile jarFile = new JarFile(file);
+
+        for (Enumeration<JarEntry> enums = jarFile.entries(); enums.hasMoreElements();) {
+            JarEntry entry = enums.nextElement();
+            if (!entry.getName().startsWith("BOOT-INF/lib")) {
+                continue;
+            }
+            String[] split = entry.getName().split("/");
+            String fileName = destinationDir + File.separator + split[split.length - 1];
+            File f = new File(fileName);
+            if (!fileName.endsWith("/")) {
+                InputStream is = jarFile.getInputStream(entry);
+                ReadableByteChannel inChannel = Channels.newChannel(is);
+                FileOutputStream fos = new FileOutputStream(f);
+                FileChannel outChannel = fos.getChannel();
+                ByteBuffer byteBuffer = ByteBuffer.allocate(1000);
+                int length = inChannel.read(byteBuffer);
+                while (length != -1) {
+                    byteBuffer.flip();
+                    outChannel.write(byteBuffer);
+                    byteBuffer.clear();
+                    length = inChannel.read(byteBuffer);
+                }
+                is.close();
+                outChannel.close();
+                fos.close();
+                inChannel.close();
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
         System.out.println(System.getProperty("user.dir"));
