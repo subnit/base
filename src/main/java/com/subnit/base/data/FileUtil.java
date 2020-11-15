@@ -1,14 +1,14 @@
 package com.subnit.base.data;
 
+import org.apache.maven.shared.invoker.*;
+
 import java.io.*;
+import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -112,6 +112,34 @@ public class FileUtil {
         return value;
     }
 
+    public static List<String> listAllFilePath(String path) {
+        List<String> res = new ArrayList<>();
+        listAllFilePath(path, res);
+        return res;
+    }
+
+    private static List<String> listAllFilePath(String path, List<String> res) {
+        File file = new File(path);
+        File[] files = file.listFiles();
+        if (files == null) {
+            return res;
+        }
+
+        for (File f : files) {
+            if (f.isDirectory()) {
+                res.add(f.getPath());
+                listAllFilePath(f.getPath(), res);
+            } else {
+                res.add(file.getPath());
+            }
+        }
+        return res;
+    }
+
+
+
+
+
     public static void unzipJar(String destinationDir, String jarPath) throws IOException {
         File file = new File(jarPath);
         JarFile jarFile = new JarFile(file);
@@ -143,14 +171,31 @@ public class FileUtil {
                 inChannel.close();
             }
         }
-
     }
 
-    public static void main(String[] args) {
-        System.out.println(System.getProperty("user.dir"));
-        String filePath = "src/main/resources/token.properties";
-        System.out.println(filePath);
-        System.out.println(getSourcingValueBykey("username",filePath));
+    public static void operationMavenOrder(String mavenPath, String pomPath, String mavenOrder) throws MavenInvocationException {
+        InvocationRequest request = new DefaultInvocationRequest();
+        // 想要操控的pom文件的位置
+        request.setPomFile(new File(pomPath));
+        // 操控的maven命令
+        request.setGoals(Collections.singletonList(mavenOrder));
+        Invoker invoker = new DefaultInvoker();
+        // maven的位置
+        invoker.setMavenHome(new File(mavenPath));
+        invoker.setLogger(new PrintStreamLogger(System.err, InvokerLogger.ERROR) {
+        });
+        invoker.setOutputHandler(new InvocationOutputHandler() {
+            @Override
+            public void consumeLine(String s) throws IOException {
+
+            }
+        });
+        invoker.execute(request);
+    }
+
+    public static void main(String[] args) throws IOException {
+        unzipJar("/Users/huihui/IdeaProjects/jarTemp",
+                "/Users/huihui/IdeaProjects/subnit-web/subnit-web-start/target/subnit-web-start-0.0.1-SNAPSHOT.jar");
     }
 
 
