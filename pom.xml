@@ -6,7 +6,7 @@
 
     <groupId>com.subnit</groupId>
     <artifactId>subnit-base</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <name>subnit-base</name>
     <description>base util of subnit</description>
