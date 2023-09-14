@@ -1,9 +1,30 @@
-<mxfile host="app.diagrams.net" modified="2023-09-14T06:32:23.707Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" version="21.7.5" etag="b_Ll2hFHh5Oy9KZOJNuA" type="github">
+<mxfile host="app.diagrams.net" modified="2023-09-14T06:37:37.770Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="NkEwC3ELTbeBaspmCicJ" version="21.7.5" type="github">
   <diagram name="第 1 页" id="FwGZYvPx543RuP_go60c">
-    <mxGraphModel>
+    <mxGraphModel dx="1026" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-1" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;填单页process&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-2" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;用户信息node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-3" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;商品详情node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-4" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;搭售node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-5" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;算价node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-6" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;价格日历node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ANIIl0F2oqM_aH0Y1HIA-7" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;合同node&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
